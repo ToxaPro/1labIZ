@@ -1,0 +1,9 @@
+struct Key4_fixture {
+	Cipher * p;
+	Key4_fixture() {
+		p = new Cipher(4);
+	}
+	~Key4_fixture() {
+		delete p;
+	}
+};

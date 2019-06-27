@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Текст програми modAlphaCipher.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   &#160;<span id="projectnumber">333333</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Створено системою Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Пошук');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Пошук');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">modAlphaCipher.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="modAlphaCipher_8h.html">Див. документацію.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;codecvt&gt;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;locale&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classmodAlphaCipher.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classmodAlphaCipher.html">modAlphaCipher</a></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classmodAlphaCipher.html#a9f83731ae4d58df14e1df3bd089d7501">   22</a></span>&#160;    wstring numAlpha = L<span class="stringliteral">&quot;АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ&quot;</span>; </div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classmodAlphaCipher.html#a9f0ca70558be9e08474f544aeaac55d8">   23</a></span>&#160;    map &lt;wchar_t,int&gt; <a class="code" href="classmodAlphaCipher.html#a9f0ca70558be9e08474f544aeaac55d8">alphaNum</a>; </div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classmodAlphaCipher.html#a318efb0cdcd8bc0c084097e175c2006b">   24</a></span>&#160;    vector &lt;int&gt; <a class="code" href="classmodAlphaCipher.html#a318efb0cdcd8bc0c084097e175c2006b">key</a>;  </div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    vector&lt;int&gt; convert(<span class="keyword">const</span> wstring&amp; ws);</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">string</span> convert(<span class="keyword">const</span> vector&lt;int&gt;&amp; v);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    wstring towstr(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s);</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">string</span> fromwstr(<span class="keyword">const</span> wstring&amp; ws);</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="classmodAlphaCipher.html">modAlphaCipher</a>()=<span class="keyword">delete</span>;</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="classmodAlphaCipher.html">modAlphaCipher</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; skey);</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">string</span> encrypt(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; open_text);</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">string</span> decrypt(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; cipher_text);</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;};</div><div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
+<div class="ttc" id="classmodAlphaCipher_html_a318efb0cdcd8bc0c084097e175c2006b"><div class="ttname"><a href="classmodAlphaCipher.html#a318efb0cdcd8bc0c084097e175c2006b">modAlphaCipher::key</a></div><div class="ttdeci">vector&lt; int &gt; key</div><div class="ttdoc">Ключ </div><div class="ttdef"><b>Definition:</b> modAlphaCipher.h:24</div></div>
+<div class="ttc" id="classmodAlphaCipher_html_a9f0ca70558be9e08474f544aeaac55d8"><div class="ttname"><a href="classmodAlphaCipher.html#a9f0ca70558be9e08474f544aeaac55d8">modAlphaCipher::alphaNum</a></div><div class="ttdeci">map&lt; wchar_t, int &gt; alphaNum</div><div class="ttdoc">Ассоциативный массив&quot;номер по символу&quot;. </div><div class="ttdef"><b>Definition:</b> modAlphaCipher.h:23</div></div>
+<div class="ttc" id="classmodAlphaCipher_html"><div class="ttname"><a href="classmodAlphaCipher.html">modAlphaCipher</a></div><div class="ttdoc">Шифрование методом Гронсфельда </div><div class="ttdef"><b>Definition:</b> modAlphaCipher.h:19</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Створено системою &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -1,0 +1,131 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <random>
+using namespace std;
+
+string numb[] = {"Шестерка", "Семерка", "Восьмерка", "Девятка","Десятка", "Валет", "Дама", "Король", "Туз"};
+string mast[] = {"Черви", "Буби", "Крести", "Пики"};
+
+struct cards {
+	int h_numb;
+	int h_mast;
+};
+
+int main()
+{
+	void mix_koloda(vector<cards>& t);
+	void fill_koloda(vector<cards>& t);
+	void find_color(vector<cards>& t);
+	void find_mast(vector<cards>& t);
+	void find_kresti(vector<cards>& t);
+	void print_valet(vector<cards>& t);
+	void print_koloda(vector<cards>& t);
+	vector<cards> kartinki(36);
+	cout << "Создание колоды:" << endl;
+	fill_koloda(kartinki);
+	print_koloda(kartinki);
+	cout << endl;
+	cout << "Перемешивание:" << endl;
+	mix_koloda(kartinki);
+	print_koloda(kartinki);
+	cout << endl;
+	cout << "Поиск в колоде двух подряд карт одного цвета:" << endl;
+	find_color(kartinki);
+	cout << endl;
+	cout << "Поиск в колоде двух подряд карт одного номинала:" << endl;
+	find_mast(kartinki);
+	cout << endl;
+	cout << "Поиск в колоде десятки крести:" << endl;
+	find_kresti(kartinki);
+	cout << endl;
+	cout << "Поиск в колоде всех вальтов:" << endl;
+	print_valet(kartinki);
+	return 0;
+}
+
+void fill_koloda(vector<cards>& t)
+{
+	int i;
+	int mast1 = 0;
+	int numb1 = 6;
+	for(i = 0; i < 36; i++) {
+		t[i].h_numb = numb1;
+		t[i].h_mast = mast1;
+		if (mast1 == 3) {
+			mast1 = 0;
+			numb1++;
+		} else
+			mast1++;
+	}
+}
+
+void mix_koloda(vector<cards>& t)
+{
+	static mt19937 rnd((uint64_t)&rnd);
+	shuffle(t.begin(),t.end(),rnd);
+}
+
+void find_color(vector<cards>& t)
+{
+	int i;
+	for(i = 1; i < 36; i++) {
+		if ((t[i].h_mast == 1 && t[i-1].h_mast == 2) || (t[i].h_mast == 0 && t[i-1].h_mast == 3) ||
+		    (t[i].h_mast == 1 && t[i-1].h_mast == 1) || (t[i].h_mast == 2 && t[i-1].h_mast == 2) ||
+		    (t[i].h_mast == 3 && t[i-1].h_mast == 3) || (t[i].h_mast == 4 && t[i-1].h_mast == 4)) {
+			cout << numb[t[i - 1].h_numb - 6] << " " << mast[t[i - 1].h_mast] << endl;
+			cout << numb[t[i].h_numb - 6] << " " << mast[t[i].h_mast] << endl;
+			cout << endl;
+		}
+	}
+}
+
+void find_mast(vector<cards>& t)
+{
+	int i;
+	for(i = 1; i < 36; i++) {
+		if (t[i].h_numb == t[i-1].h_numb) {
+			cout << numb[t[i - 1].h_numb - 6] << " " << mast[t[i - 1].h_mast] << endl;
+			cout << numb[t[i].h_numb - 6] << " " << mast[t[i].h_mast] << endl;
+			cout << endl;
+		}
+	}
+}
+
+void find_kresti(vector<cards>& t)
+{
+	int i;
+	for(i = 0; i < 36; i++) {
+		if (t[i].h_numb == 10 && t[i].h_mast == 2) {
+			cout << numb[t[i].h_numb - 6] << " " << mast[t[i].h_mast] << " находится в колоде на " << i + 1 << "-ом месте" << endl;
+			break;
+		}
+	}
+}
+
+void print_valet(vector<cards>& t)
+{
+	int i;
+	for(i = 0; i < 36; i++) {
+		if (t[i].h_numb == 11 && t[i].h_mast == 0) {
+			cout << numb[t[i].h_numb - 6] << " " << mast[t[i].h_mast] << " находится в колоде на " << i + 1 << "-ом месте" << endl;
+		}
+		if (t[i].h_numb == 11 && t[i].h_mast == 1) {
+			cout << numb[t[i].h_numb - 6] << " " << mast[t[i].h_mast] << " находится в колоде на " << i + 1 << "-ом месте" << endl;
+		}
+		if (t[i].h_numb == 11 && t[i].h_mast == 2) {
+			cout << numb[t[i].h_numb - 6] << " " << mast[t[i].h_mast] << " находится в колоде на " << i + 1 << "-ом месте" << endl;
+		}
+		if (t[i].h_numb == 11 && t[i].h_mast == 3) {
+			cout << numb[t[i].h_numb - 6] << " " << mast[t[i].h_mast] << " находится в колоде на " << i + 1 << "-ом месте" << endl;
+		}
+	}
+}
+void print_koloda(vector<cards>& t)
+{
+	int i;
+	for(i = 0; i < 36; i++) {
+		cout << numb[t[i].h_numb - 6] << " " << mast[t[i].h_mast] << endl;;
+	}
+}
